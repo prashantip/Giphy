@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var displayedButtons = ["supergirl", "tom & jerry", "emotions", "nemo"];
+    var displayedButtons = ["supergirl", "tom & jerry", "shark tales", "dance"];
 
 
     // create, dispaly, add data name to btns
@@ -45,17 +45,17 @@ $(document).ready(function(){
             for(var j = 0; j < limit; j++) {    
 
                 var displayDiv = $("<div>");
-            //    displayDiv.addClass("holder");
+                displayDiv.addClass("holder");
             
                 var image = $("<img>");
-                var still = results[j].images.fixed_height.url;
-                var animate = results[j].images.fixed_height.url;
+                var still = results[j].images.original_still.url;
+                var animate = results[j].images.original.urll;
 
-                image.attr("src", results[j].images.fixed_height.url);
-                image.attr("data-still", results[j].images.fixed_height.url);
-                image.attr("data-animate", results[j].images.fixed_height.url);
+                image.attr("src", results[j].images.original_still.url);
+                image.attr("data-still", results[j].images.original_still.url);
+               image.attr("data-animate", results[j].images.original.url);
                 image.attr("data-state", "still");
-               // image.attr("class", "gif");
+               image.attr("class", "gif");
                 displayDiv.append(image);
       
 
@@ -76,6 +76,10 @@ $(document).ready(function(){
 
 
            function imageChangeState(){
+
+            var state = $(this).attr("data-state");
+            var animateImage = $(this).attr("data-animate");
+            var stillImage = $(this).attr("data-still");
 
          if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
