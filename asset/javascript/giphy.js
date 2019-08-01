@@ -36,21 +36,34 @@ $(document).ready(function(){
             url: queryURL, 
             method: "GET"
         }).done(function(response) {
+    
+            console.log(response);
+   
+
+            var results = response.data;
 
             for(var j = 0; j < limit; j++) {    
 
                 var displayDiv = $("<div>");
-                displayDiv.addClass("holder");
+            //    displayDiv.addClass("holder");
             
                 var image = $("<img>");
-                image.attr("src", response.data[j].images.original_still.url);
-                image.attr("data-still", response.data[j].images.original_still.url);
-                image.attr("data-animate", response.data[j].images.original.url);
-                image.attr("data-state", "still");
-                image.attr("class", "gif");
-                displayDiv.append(image);
+                var still = results[j].images.fixed_height.url;
+                var animate = results[j].images.fixed_height.url;
 
-               
+                image.attr("src", results[j].images.fixed_height.url);
+                image.attr("data-still", results[j].images.fixed_height.url);
+                image.attr("data-animate", results[j].images.fixed_height.url);
+                image.attr("data-state", "still");
+               // image.attr("class", "gif");
+                displayDiv.append(image);
+      
+
+              var rating = response.data[j].rating;
+               console.log(rating);
+
+               var R = $("<p>").text("Rating:-" + rating);
+               displayDiv.prepend(R)
 
                 $("#display-images").append(displayDiv);
             }
@@ -58,6 +71,25 @@ $(document).ready(function(){
     }
               $(document).on("click", "#input", displayImg); 
     
+
+     //    function change the image status
+
+
+           function imageChangeState(){
+
+         if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+            } 
+          else 
+          {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+          }       
+        }
+         
+         
+        $(document).on("click", ".gif", imageChangeState);
 
      // add search input
 
