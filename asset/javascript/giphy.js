@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    var displayedButtons = ["supergirl", "tom & jerry", "shark tales", "dance"];
+    var displayedButtons = ["Frozen", "nemo", "shark tales", "Aladdin"];
 
 
     // create, dispaly, add data name to btns
@@ -18,7 +18,7 @@ $(document).ready(function(){
             $("#display-buttons").append(newButton); 
         }
     }
-            renderButtons();
+            renderButtons(); 
 
 
 

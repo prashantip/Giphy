@@ -3,8 +3,8 @@ button, div, form, input {
 }
 
 img {
-	max-width: 200px;
-	max-height: 200px;
+	max-width: 400px;
+	max-height: 400px;
 }
 
 label {
@@ -12,11 +12,13 @@ label {
 }
 
 .btn-default {
-    color: hotpink;
-    font-size: medium;
+    color: rgb(150, 14, 77);
+    font-size:medium;
+    font-style: oblique;
 }
 
 body {
+  
 	font-family: 'Press Start 2P', cursive;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,5 +30,10 @@ body {
 
 .jumbotron {
     text-align: center;
-    color: hotpink;
+    color: rgb(129, 9, 69);
+}
+
+p{
+    text-align: center;
+   color: rgb(129, 9, 69) ;
 }
